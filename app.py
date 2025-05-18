@@ -125,5 +125,7 @@ def mapper():
     return render_template('mapper.html')
 
 if __name__ == '__main__':
+    import os
     init_db()
-    app.run(debug=True)
+    debug_mode = os.getenv('FLASK_ENV') == 'development'
+    app.run(debug=debug_mode)
